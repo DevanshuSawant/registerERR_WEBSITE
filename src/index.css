@@ -1,0 +1,43 @@
+
+
+body {
+  margin: 0;
+  padding: 0%;
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background-color: #fefe;
+  color: #000000;
+}
+
+.links {
+  display: flex;
+  justify-content: space-evenly;
+  text-decoration: none;
+  gap: 15%;
+}
+
+.link {
+  text-decoration: none;
+  color: #000000;
+}
+
+.editdata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.regpage-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
