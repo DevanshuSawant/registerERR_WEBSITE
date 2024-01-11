@@ -1,6 +1,7 @@
 import {db, event, getDoc, doc, setDoc } from '../utils/firebase.js';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthChecker } from '../utils/general_utils';
 
 
 function EditPage() {
@@ -18,11 +19,11 @@ function EditPage() {
 
 
 
-  const getData = async () => {
-  const docRef = doc(db, event, authEmail);
-  const docSnap = await getDoc(docRef);
-  console.log("Document data:", docSnap.data());
-  }
+  // const getData = async () => {
+  //   const docRef = doc(db, event, authEmail);
+  //   const docSnap = await getDoc(docRef);
+  //   console.log("Document data:", docSnap.data());
+  // }
 
   const submit = (e) => {
     e.preventDefault();    
@@ -59,17 +60,17 @@ function EditPage() {
   };
 
 
-  getData();
+  // getData();
   return (
     <div id="edit-page">
       <nav className="navbar">
         <h1>registerERR</h1>
         <div className="links">
-          <Link to="/" className='link'><h3>Register</h3></Link>
+          <AuthChecker/>
           <Link to="/about" className='link'><h3>About</h3></Link>
         </div>
       </nav>
-      <h1>Edit Your Details</h1>
+      <h1 style={{textAlign: "center"}}>Edit Your Details</h1>
       <form className='editdata'>
         <label for="BRANCH" className="editdata-label-1 editdata-label" >BRANCH:</label>
         <select className="editdata-input" name="BRANCH" value={branch} onChange={(e) => setBranch(e.target.value)} >
@@ -86,7 +87,7 @@ function EditPage() {
             className="editdata-input"
             label="Roll No"
             type="number"
-            placeholder={roll_no}
+            placeholder="Roll No"
             value={roll_no}
             onChange={(e) => setRoll_no(e.target.value)}
         />
@@ -123,7 +124,7 @@ function EditPage() {
           className="editdata-input"
           label="MS Teams Mail"
           type="email"
-          placeholder={msteams_mail}
+          placeholder="user@sakec.ac.in"
           value={msteams_mail}
           onChange={(e) => setMsteams_mail(e.target.value)}
         />
@@ -133,9 +134,10 @@ function EditPage() {
           className="editdata-input"
           label="Phone No"
           type="number"
-          placeholder={phone_no}
+          placeholder="xxxxxxxxxx"
           value={phone_no}
           onChange={(e) => setPhone_no(e.target.value)}
+          required
         />
 
         <label for="NAME" className="editdata-label-7 editdata-label" >NAME:</label>
@@ -143,7 +145,7 @@ function EditPage() {
           className="editdata-input"
           label="Name"
           type="text"
-          placeholder={name}
+          placeholder="LASTNAME FIRSTNAME MIDDLENAME"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -153,7 +155,7 @@ function EditPage() {
           className="editdata-input"
           label="Reg No"
           type="number"
-          placeholder={reg_no}
+          placeholder="xxxxx"
           value={reg_no}
           onChange={(e) => setReg_no(e.target.value)}
         />
@@ -163,7 +165,7 @@ function EditPage() {
           className="editdata-input"
           label="Smart Card No"
           type="text"
-          placeholder={smart_card_no}
+          placeholder="C2021AIDS1007"
           value={smart_card_no}
           onChange={(e) => setSmart_card_no(e.target.value)}
         />
